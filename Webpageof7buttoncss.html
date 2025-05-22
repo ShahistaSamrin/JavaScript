@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+                margin: 20px;
+                text-align: center;
+                border: 4px solid #007BFF;
+                padding: 20px;
+                border-radius: 12px;
+                box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+            }
+            button {
+                background-color: #007BFF;
+                border: 3px solid #004085;
+                color: white;
+                padding: 12px 24px;
+                margin: 12px;
+                border-radius: 12px;
+                font-size: 18px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 86, 179, 0.5);
+            }
+            button:hover {
+                background-color: #0056b3;
+                box-shadow: 0 6px 12px rgba(0, 86, 179, 0.7);
+            }
+            h1 {
+                border: 3px solid #007BFF;
+                background-color: #e6f0ff;
+                color: #003366;
+                padding: 12px 20px;
+                margin: 10px auto;
+                width: 220px;
+                border-radius: 12px;
+                min-height: 50px;
+                box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+            }
+        </style>
+        <script>
+            function m(){
+                document.getElementById('a').innerHTML="dal rice";
+            }
+            function t(){
+                document.getElementById('a').innerHTML="rasam rice";
+            }
+            function w(){
+                document.getElementById('a').innerHTML="fried rice";
+            }
+            function th(){
+                document.getElementById('a').innerHTML="curd rice";
+            }
+            function f(){
+                document.getElementById('a').innerHTML="briyani";
+            }
+            function s(){
+                document.getElementById('a').innerHTML="fish";
+            }
+            function su(){
+                document.getElementById('a').innerHTML="chicken curry";
+            }
+        </script>
+        <style>
+            .menu-heading {
+                font-size: 28px;
+                color: #003366;
+                margin-bottom: 20px;
+                border-bottom: 3px solid #007BFF;
+                padding: 12px 20px 8px 20px;
+                width: 150px;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 12px;
+                background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+                box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
+            }
+        </style>
+    </head>
+    <body>
+        <h2 class="menu-heading">Menu</h2>
+        <button onclick="m()">Monday</button>
+        <button onclick="t()">Tuesday</button>
+        <button onclick="w()">Wednesday</button>
+        <button onclick="th()">Thursday</button>
+        <button onclick="f()">Friday</button>
+        <button onclick="s()">Saturday</button>
+        <button onclick="su()">Sunday</button>
+        <h1 id="a"></h1>
+    </body>
+</html>
