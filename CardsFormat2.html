@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alternate Style PAN Card Generator</title>
+<style>
+  body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #e6f2ff;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .pan-card {
+    width: 600px;
+    background-color: #003366;
+    border-radius: 20px;
+    color: #fff;
+    padding: 30px 50px;
+    box-shadow: 0 0 25px rgba(0, 51, 102, 0.7);
+    position: relative;
+  }
+  .pan-header {
+    font-weight: 900;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .pan-subheader {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .pan-logo {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 80px;
+  }
+  .pan-watermark {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 280px;
+    height: 280px;
+    opacity: 0.06;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .pan-photo {
+    position: absolute;
+    top: 110px;
+    right: 45px;
+    width: 120px;
+    height: 150px;
+    border: 4px solid #fff;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #fff;
+  }
+  .pan-details {
+    max-width: 440px;
+    margin-left: 20px;
+  }
+  .pan-field {
+    margin-bottom: 20px;
+  }
+  .pan-label {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    display: block;
+  }
+  input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+  input[type="file"] {
+    margin-top: 10px;
+  }
+  .button {
+    margin-top: 30px;
+    background-color: #ff9900;
+    border: none;
+    padding: 14px 32px;
+    font-weight: 900;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #003366;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+  }
+  .button:hover {
+    background-color: #e68a00;
+  }
+</style>
+<script>
+  let photoDataUrl = '';
+
+  function previewPhoto(event) {
+    const reader = new FileReader();
+    reader.onload = function() {
+      photoDataUrl = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+  function generateCard() {
+    const name = document.getElementById('nameInput').value.trim();
+    const fatherName = document.getElementById('fatherNameInput').value.trim();
+    const dob = document.getElementById('dobInput').value;
+    const panNumber = document.getElementById('panInput').value.trim().toUpperCase();
+
+    if (!name || !fatherName || !dob || !panNumber) {
+      alert('Please fill all fields before generating the PAN card.');
+      return;
+    }
+
+    localStorage.setItem('pan_name', name);
+    localStorage.setItem('pan_fatherName', fatherName);
+    localStorage.setItem('pan_dob', dob);
+    localStorage.setItem('pan_panNumber', panNumber);
+    localStorage.setItem('pan_photoDataUrl', photoDataUrl);
+
+    window.location.href = 'PanCardDisplay.html';
+  }
+</script>
+</head>
+<body>
+  <div class="pan-card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Emblem_of_India.svg/120px-Emblem_of_India.svg.png" alt="Government Logo" class="pan-logo" />
+    <div class="pan-header">Income Tax Department</div>
+    <div class="pan-subheader">Government of India</div>
+    <div class="pan-details">
+      <div class="pan-field">
+        <label class="pan-label" for="nameInput">Name</label>
+        <input type="text" id="nameInput" placeholder="Full Name" />
+      </div>
+      <div class="pan-field">
+        <label class="pan-label" for="fatherNameInput">Father's Name</label>
+        <input type="text" id="fatherNameInput" placeholder="Father's Name" />
+      </div>
+      <div class="pan-field">
+        <label class="pan-label" for="dobInput">Date of Birth</label>
+        <input type="date" id="dobInput" />
+      </div>
+      <div class="pan-field">
+        <label class="pan-label" for="panInput">PAN Number</label>
+        <input type="text" id="panInput" maxlength="10" placeholder="ABCDE1234F" />
+      </div>
+      <div class="pan-field">
+        <label class="pan-label" for="photoInput">Upload Photo</label>
+        <input type="file" id="photoInput" accept="image/*" onchange="previewPhoto(event)" />
+      </div>
+      <button class="button" onclick="generateCard()">Generate PAN Card</button>
+    </div>
+  </div>
+</body>
+</html>

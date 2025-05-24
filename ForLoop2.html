@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script>//pattern 
+            function b(){
+                var y = parseInt(document.getElementById("r").value);
+                for(var i=0;i<y;i++){
+                    for(var j=0;j<y;j++){
+                        document.write(" * ");
+                    }
+                    document.write("<br>");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        Enter number to show the output<input type="text" id="r">
+        <button onclick="b()">Run</button>
+    </body>
+</html>
