@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>Percentage Calculation</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f9f9f9;
+            }
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border: 2px solid #007BFF;
+                border-radius: 8px;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 40px auto;
+        }
+            label {
+                display: block;
+                margin-bottom: 6px;
+                font-weight: bold;
+                color: #333;
+            }
+            input[type="text"],
+            input[type="number"] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+            button {
+                background-color: #007BFF;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+            }
+            button:hover {
+                background-color: #0056b3;
+            }
+            #av {
+                margin-top: 15px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #007BFF;
+            }
+        </style>
+        <script>
+            function a(){
+                let x=document.getElementById("stn").value;
+                let a=parseInt(document.getElementById("s1").value);
+                let b=parseInt(document.getElementById("s2").value);
+                let c=parseInt(document.getElementById("s3").value);
+                let d=parseInt(document.getElementById("s4").value);
+                let e=parseInt(document.getElementById("s5").value);
+                let av=(a+b+c+d+e)/5;
+                let percentage = av; // Since average is already percentage if marks are out of 100
+                document.getElementById("av").innerHTML="Student name: "+x+"<br>Average Marks: "+av+"<br>Percentage: "+percentage+"%";
+            }
+        </script>
+    </head>
+    <body>
+        <h1 style="text-align:center; color:#007BFF;">Percentage Calculation</h1>
+        <form>
+            <label for="stn">Student Name :</label>
+            <input type="text" id="stn" name="stn" required>
+            <label for="s1">Subject 1 Marks :</label>
+            <input type="number" id="s1" name="s1" required>
+            <label for="s2">Subject 2 Marks :</label>
+            <input type="number" id="s2" name="s2" required>
+            <label for="s3">Subject 3 Marks :</label>
+            <input type="number" id="s3" name="s3" required>
+            <label for="s4">Subject 4 Marks :</label>
+            <input type="number" id="s4" name="s4" required>
+            <label for="s5">Subject 5 Marks :</label>
+            <input type="number" id="s5" name="s5" required>
+            <button type="button" onclick="a()">Average is</button>
+            <p id="av"></p>
+        </form>
+    </body>
+</html>
